@@ -6,8 +6,6 @@ GAUSSIAN_SMOOTH_FILTER_SIZE = (5, 5)
 ADAPTIVE_THRESH_BLOCK_SIZE = 19
 ADAPTIVE_THRESH_WEIGHT = 9
 
-image_file = "images/1.png"
-
 def preprocess(imgoriginal):
 
     height, width, numChannels = imgoriginal.shape
@@ -38,15 +36,3 @@ def preprocess(imgoriginal):
     imgthresh = cv2.adaptiveThreshold(imgblurred, 255.0, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, ADAPTIVE_THRESH_BLOCK_SIZE, ADAPTIVE_THRESH_WEIGHT)
 
     return(imgthresh)
-
-imgoriginal = cv2.imread(image_file)
-imgex = preprocess(imgoriginal)
-
-cv2.imshow("image", imgex)
-cv2.waitKey(0)
-
-
-
-#grayscaleimg = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
-
-#cv2.imshow(HSVimg, "sample")
